@@ -36,6 +36,7 @@ There is an algorithm for this that understands to not put the lines in such a w
 
 ---OpenLane Labs---
 
+Openlane is a tool tuned for 130nm cutting edge technology, first we will launch it then left click and select - "Open Terminal "  
 ------x------x------x------x-------x------x-----x-----x----x-----x----x----x
          Thank You, You Have Reached The End Of This Repository 
          Author : Athv Sharma
