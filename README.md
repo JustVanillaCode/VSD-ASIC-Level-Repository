@@ -36,9 +36,9 @@ There is an algorithm for this that understands to not put the lines in such a w
 
 ---OpenLane Labs---
 
-Openlane is a tool tuned for 130nm cutting edge technology, first we will launch it then left click and select - "Open Terminal "  (Screenshot 2024-03-26 235512.png), then the terminal window will pop up; (Screenshot 2024-03-26 235359.png )
-then will type in command line `ls` which means to list, then we will type `cd Desktop` cd means - change directory so this command line means to change the directory to Desktop, then `ls -ltr`, select tools using command line `cd tools`, then `ls -ltr`,` cd openlane_working_dir`, `cd openlane`, `ls -ltr`, then to run it in interactive mode we will type ethe command line `docker`,  a bash 4.2 text will appear in front, then type `./flow.tcl`
-this will turn the terminal into interactive mode (Screnshot 2024-03-26 235925), the lines are in Screenshot 2024-03-27 000014.png 
+Openlane is a tool tuned for 130nm cutting-edge technology, first, we will launch it then left-click and select - "Open Terminal "  (Screenshot 2024-03-26 235512.png), then the terminal window will pop up; (Screenshot 2024-03-26 235359.png )
+then will type in command line `ls` which means to list, then we will type `cd Desktop` cd means - change directory so this command line means to change the directory to Desktop, then `ls -ltr`, select tools using command line `cd tools`, then `ls -ltr`,` cd openlane_working_dir`, `cd openlane`, `ls -ltr`, then to run it in the interactive mode we will type the command line `docker`,  a bash 4.2 text will appear in front, then type `./flow.tcl`
+this will turn the terminal into interactive mode (Screenshot 2024-03-26 235925), the lines are in Screenshot 2024-03-27 000014.png         
 ------x------x------x------x-------x------x-----x-----x----x-----x----x----x
          Thank You, You Have Reached The End Of This Repository 
          Author : Athv Sharma
