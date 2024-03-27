@@ -31,14 +31,15 @@ Without clock tree synthesis, efficient clock distribution in VLSI designs canno
 There is also a concept of H - Tree which calculates the middle of all its endpoints and originates a tree from that midpoint of all its endpoints.
 For example let us say we have four flip flops flip flop one, flip flop 2, flip flop 3, and flip flop 4 they are placed in a square shape so the edge 3 syntheses will find the midpoint then it will reach the midpoint of flip flop 1 and 2 and then connect them same for flip flop 3 and 4 Show the clock reaches at every flip flop at the same time or almost at the same time, Show us skew Value will be zero or very close to zero. The clock will reach through real buffers, the connection is called a clock net. Also, the clock net is shielded so no glitch occurs and the net is not interfered.                                                                                                                                         
 --Routing--
-To Understand routing, let us say we have two points A and B and we have to connect A and B where A is the source and connect them in the best path with the least twists and turns. Twists and turns means zigzag lines, most of the lines should be in L shape.
+To Understand routing, let us say we have two points A and B and we have to connect A and B where A is the source and connect them in the best path with the least twists and turns. Twists and turns means zigzag lines, most of the lines should be in an L shape.
 There is an algorithm for this that understands to not put the lines in such a way, it was invented by Lee in 1961 and is called Lee's algorithm. It creates a grid in the backend called the routing grid, it with the points to be routed. The first step is does that it labels the adjacent grids and calculate the path. Any routing algorithm or engine always prefers the path with the least turns. This algorithm works by first creating a maze of   numbers and then calculating the path. This is slow, time-consuming, and requires a lot of memory as each data has to be stored. There are also some rules that need to be followed during routing. 
 
 ---OpenLane Labs---
 
 Openlane is a tool tuned for 130nm cutting-edge technology, first, we will launch it then left-click and select - "Open Terminal "  (Screenshot 2024-03-26 235512.png), then the terminal window will pop up; (Screenshot 2024-03-26 235359.png )
 then will type in command line `ls` which means to list, then we will type `cd Desktop` cd means - change directory so this command line means to change the directory to Desktop, then `ls -ltr`, select tools using command line `cd tools`, then `ls -ltr`,` cd openlane_working_dir`, `cd openlane`, `ls -ltr`, then to run it in the interactive mode we will type the command line `docker`,  a bash 4.2 text will appear in front, then type `./flow.tcl`
-this will turn the terminal into interactive mode (Screenshot 2024-03-26 235925), the lines are in Screenshot 2024-03-27 000014.png         
+this will turn the terminal into interactive mode (Screenshot 2024-03-26 235925), the lines are in Screenshot 2024-03-27 000014.png    
+
 ------x------x------x------x-------x------x-----x-----x----x-----x----x----x
          Thank You, You Have Reached The End Of This Repository 
          Author : Athv Sharma
