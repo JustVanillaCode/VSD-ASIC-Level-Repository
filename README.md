@@ -50,6 +50,6 @@ then will type in command line `ls` which means to list, then we will type `cd D
 this will turn the terminal into interactive mode ![Screenshot 2024-03-26 235925](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/e8d42fdd-f9ca-4d8a-98f1-2bf5aad087a4)
 , the lines are below ![Screenshot 2024-03-27 000014](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/a8bddc4a-f3f4-4728-a040-ed2147e5fd98)    
 
-------x------x------x------x-------x------x-----x-----x----x-----x----x----x
+                                  ------x------x------x------x-------x------x-----x-----x----x-----x----x----x
          Thank You, You Have Reached The End Of This Repository 
          Author : Athv Sharma
