@@ -43,14 +43,18 @@ There is an algorithm for this that understands to not put the lines in such a w
 
 ---OpenLane Labs---
 
-Openlane is a tool tuned for 130nm cutting-edge technology, first, we will launch it then left-click and select - "Open Terminal "  ![Screenshot 2024-03-26 235359](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/1cd42941-300e-43b8-83ee-974acc62069b), then the terminal window will pop up; 
+Openlane is a tool tuned for 130nm cutting-edge technology, first, we will launch it then left-click and select - "Open Terminal "![Screenshot 2024-03-26 235359](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/1cd42941-300e-43b8-83ee-974acc62069b), then the terminal window will pop up; 
 ![Screenshot 2024-03-26 235512](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/a7f58aab-b989-430c-8540-656e3127b0a3)
 
 then will type in command line `ls` which means to list, then we will type `cd Desktop` cd means - change directory so this command line means to change the directory to Desktop, then `ls -ltr`, select tools using command line `cd tools`, then `ls -ltr`,` cd openlane_working_dir`, `cd openlane`, `ls -ltr`, then to run it in the interactive mode we will type the command line `docker`,  a bash 4.2 text will appear in front, then type `./flow.tcl -interactive`
 this will turn the terminal into interactive mode ![Screenshot 2024-03-26 235925](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/e8d42fdd-f9ca-4d8a-98f1-2bf5aad087a4), the lines are below are the commands ![Screenshot 2024-03-27 000014](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/a8bddc4a-f3f4-4728-a040-ed2147e5fd98), then we will type `package require openlane 0.9`, `prep design picorv32a` to merge the lef files 
 ![Screenshot 2024-03-27 145202](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/4d5ea6af-0ceb-490a-a9c9-3229f8250283)
 then when we check, a runs directory will be created. Inside the directory, a folder with today's date will be created ![Screenshot 2024-03-27 145814](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/f2a8af54-b20a-4685-8891-d74f16811667)
-![Screenshot 2024-03-27 145754](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/10c47a59-ea98-42f7-849a-876e94244569), the wnext step is to run synthesis using the `run_synthesis`
+![Screenshot 2024-03-27 145754](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/10c47a59-ea98-42f7-849a-876e94244569), the next step is to run synthesis using the `run_synthesis` after some time, it will show ![Screenshot 2024-03-27 150726](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/1ca2bc8e-111c-4100-93e3-c453ed6825f5) to show that the synthesis was successful. 
+
+Then, to run floorplan, we will type `run_floorplan` like -
+
+
                                   x-----x----x------x------x------x------x------x-----x-----x-----x----x-----x-----x-----x
          Thank You, You Have Reached The End Of This Repository 
          Author : Athv Sharma
