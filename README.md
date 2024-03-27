@@ -10,7 +10,9 @@ only language a computer understands. Let us take an example  of  a  RISC-V, the
 program, then this assembly language program is converted into machine language(Binary) which  is understood  by  the  computer. This is then executed to get the output. The
 flow is -  Architecture --> RTL --> Layout(qFlow)  
 
-There are many apps or application software that we use on a daily basis. They all depend on the chip. The central focus of our consideration hinges on how  it happens. The apps execute a signal to the so-called "System Software" which in turn converts the program to binary language. Majorly, the system software consists of the OS(Operating System), Compiler, and Assembler. It handles the IO operations, Allocates memory, and also helps in low-level system functions. A compiler and assembler convert the program to the chip type program for example if it is a RISC - V chip, the program will be converted into a RISC - V instruction. The abstract interface instruction set architecture can also be called the 'architecture of a computer '.  
+There are many apps or application software that we use on a daily basis. They all depend on the chip. The central focus of our consideration hinges on how  it happens. The apps execute a signal to the so-called "System Software" which in turn converts the program to binary language. Majorly, the system software consists of the OS(Operating System), Compiler, and Assembler. It handles the IO operations, Allocates memory, and also helps in low-level system functions. A compiler and assembler convert the program to the chip type program for example if it is a RISC - V chip, Like this - 
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/f167279e-ac62-4120-bb7f-4132f9eb33be)
+ the program will be converted into a RISC - V instruction. The abstract interface instruction set architecture can also be called the 'architecture of a computer '.  
 
 ASIC, 
 ![Screenshot 2024-03-20 163324](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/8d0989cc-7061-431b-90d0-567bc146f1ce)
