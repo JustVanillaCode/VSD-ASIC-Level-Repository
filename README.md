@@ -236,9 +236,28 @@ Now, let us concentrate on the poly 9 rule which means that the poly resistor sp
 
 ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/842e8597-e2f3-4a8b-bbe4-87d93f2fad6a)
 
+IThe directory pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/ contains the liberty timing files for the PDK with plate number 1. These files contain timing and power parameters for each cell needed in STA. The library includes three PVT corners - slow, typical, and fast - with different supply voltages (1v80, 1v65, 1v95). The library named sky130_fd_sc_hd__ss_025C_1v80 describes the slow-slow PVT corner, which means the delay is maximum, at 25° Celsius temperature, and at 1.8V power supply. 
+
+The timing and power parameters of a cell are obtained by simulating the cell in different operating conditions, or corners, and the data is represented in the liberty file. This file characterizes all cells and is used during ABC mapping in the synthesis stage, which maps the generic cells to the actual standard cells available in the liberty file.
+
+To proceed with the task, you need to copy the extracted lef file named sky130_vsdinv.lef and the liberty files named sky130.lib* from the repository /openlane/vsdstdcelldesign/libs to the src directory of picorv32a.
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/cbd38304-dfd1-4f42-a45e-407ca0e5326b)
+
+Now, we can add the _config.tcl_ file inside the picorv32a directory.
+After this, Enter the docker command and prepare picorv32a. Add the new lef file into OpenLane. You can do this from the following commands- 
+1. docker
+2. ./flow.tcl -interactive
+3. package require openlane 0.9
+4. prep -design picorv32a
+5. set lefs [glob $::env(DEESIGN_DIR)/src/*.lef]
+6. add_lefs -src $lefs
+
+Then run synthesis and check so that sky130_vsdinv cell is included in the design.
 
 
- The next step is to run TritonCTS by `run_cts` command followed by `run_routing` to run routing, `run_magic`, `run_magicspice_export`, `run_magic_drc`, `run_netgen` then lastly `run_magic_antenna_check`.*To run Magic simulation, use the `Magic -T` command. 
+
+ Now we can run TritonCTS by `run_cts` command followed by `run_routing` to run routing, `run_magic`, `run_magicspice_export`, `run_magic_drc`, `run_netgen` then lastly `run_magic_antenna_check`.*To run Magic simulation, use the `Magic -T` command. 
 This was the complete flow in labs, we ran it in interactive to run and understand each step, else the entire flow would have been executed and implemented in one go together.  
 
 
