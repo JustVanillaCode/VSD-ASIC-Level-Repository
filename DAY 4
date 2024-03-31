@@ -44,3 +44,4 @@ Transition time = time(slew_high_x_thr) - time(slew_low_x_thr)
 Propagation delay = time(out_x_thr) - (time_x_thr)
 
 ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/6193b8f9-78be-415e-a927-a4443541e730)
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/a632e3e8-25f2-4702-acf1-9be82b40e088)
