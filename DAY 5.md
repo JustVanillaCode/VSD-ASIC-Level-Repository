@@ -16,10 +16,93 @@ The file- ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openl
 Now, we can satisfy the guidelines.  
 
 Timing libs and New cell synthesis-
-The lib directory has the timing files for SKY130 PDK, It has the timing and parameters for each cell. It can vary it could be slow or fast or typical depending on the supply voltage which is Pvt. The library named Sky130_fd_sc_hd__ss_025C_1v80 represents the  PVT corner as ss(slow-slow).
+The lib directory has the timing files for SKY130 PDK, It has the timing and parameters for each cell. It can vary it could be slow or fast or typical depending on the supply voltage which is Pvt. The library named Sky130_fd_sc_hd__ss_025C_1v80 represents the  PVT corner as ss(slow-slow) which means that the delay is maximum. Similarly, ff for fast fast which means the delay is minimum. To obtain the timing and power parameters of a cell, it needs to be simulated in various operating conditions, known as corners. This data is then represented in the liberty file, which characterizes all cells. During the ABC mapping process in the synthesis stage, the liberty file is used to map the generic cells to the actual standard cells available. To do this, the steps are :
+1. Copy the extracted _lef_ file. It is named as _sky130_vsdinv.lef_ and the liberty file is named as _sky130.lib*_ from the repo - _/openlane/vsdstdcelldesign/libs_ in the src directory of picorv32a.
 
+   ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/e4522402-5595-46a2-a24b-14a9b26d8c8c)
+
+To proceed, you need to modify the config.tcl file located in the picorv32a directory. This will set the liberty file to be used for ABC mapping of synthesis (LIB_SYNTH) as well as for STA (_FASTEST,_SLOWEST,_TYPICAL). Additionally, it will set the extra LEF files (EXTRA_LEFS) for the customized inverter cell.
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/de916bf7-3d21-4840-9fca-2e1b9de3fcec)
+
+3. Invoke the docker command and prepare the picorv32a design. Plug the new LEF file to the OpenLANE flow through the following commands.
+   
+1. docker
+
+2. ./flow.tcl -interactive
+
+3. package require openlane 0.9
+
+4. prep -design picorv32a
+
+5. set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+
+6. add_lefs -src $lefs
+
+After a successful run, this file will be created _runs/[date]/results/placement/picorv32a.placement.def_
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/18e9da8e-1c10-400a-9108-77167cd01111)
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/cc9e8d46-ef38-4b44-baf9-9c2f1d5a383d)
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/e0222d3d-23f7-4ac4-93ad-f9657b340b41)
+
+
+Configure Synthesis and Fix Slack And Include VSDINV
+Through previous pictures, we know
+tns = -711.59
+wns = -23.89
+chip area for picorv32a = 147712.9184
+
+So, our next step is to make the synthesis more drawn to timing.
+This can be done by
+1. Checking synthesis approach and other timing-related variables and modify them accordingly.
+a. SYNTH_STRATEGY of delay 0 means that the tool will focus on optimizing the delay.
+b. Index can be changed to 0, 1, 2 or 3 where 3 is the highest optimized for timing at the cost of area.
+c. SYNTH_BUFFERING of value 1 ensures that the buffer will be used on high fanout cells to reduce wire delay.
+d. SYNTH_SIZING of 1 allows cell sizing where the cell can be upsized or downsized to meet the desired timing.
+e. SYNTH_DRIVING_CELL is the cell which is used to drive the input ports. This is very crucial with cells who have a lot of fan-outs as they need higher drive strength.
+
+    ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/834ce815-e65b-4ccd-ba4c-b044728d356e)
+
+2. After the previous step, run synthesis again.It can be observed that the area has increased without any negative slack.
+tns = 0
+wns = 0
+Chip area for picorv32a = 209181.872
+
+3. Thereafter, run floorplan and placement.
+
+We can also execute the following commands -
+
+init_floorplan
+
+place_io
+
+global_placement_or
+
+detailed_placement
+
+tap_decap_or
+
+detailed_placement
+
+After a successful run, we will get the following output :
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/8b4c94ba-800a-4a1e-8cc4-f350b2e032f0)
+
+4. After the placement stage, search for instances of the cell sky130_vsdinv inside the DEF file using this command: cat picorv32a.placement.def | grep sky130_vsdinv. 
+
+5.Firstly, you need to select a single instance of the `sky130_vsdinv` cell from the list that you have obtained using the `grep` command. For instance, you can select the instance with the number `41096` by running the command `select cell 41096` on `tkcon`. To zoom into the selected cell, press `ctrl+z`. Once you have done this, you should be able to see that our customized inverter cell `sky130_myinverter` has been successfully placed. You can use the `expand` command on `tkcon` to show the footprint of the cell. You will notice that the power and ground of `sky130_vsdinv` overlaps with the power and ground pins of its adjacent cells :
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/77fa1638-abce-4ea9-8219-897556c5cb68)
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/798f07fa-fe2b-4aaf-9f95-db89a1b83bde)
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/650868fc-f426-4d56-9580-febb66cbf716)
+
+   
 Spice Deck -
-The SPICE deck is a file that contains information about how the different electronic components in a circuit are connected to each other. It specifies which inputs need to be provided and which outputs need to be monitored. The values of components are also specified in the file. For instance, the PMOS (positive channel metal oxide semiconductor) has a channel length of 0.25 microns and a channel width of 0.375 microns. Ideally, the width of the PMOS should be 2 to 3 times wider than that of the NMOS (negative channel metal oxide semiconductor). This is because the PMOS hole carrier is slower than the NMOS carrier, and to achieve matched rise and fall times, we need to reduce the resistance by increasing the width of the PMOS. After this, the nodes in the circuit are identified and named.
+The SPICE deck is a file containing information about how the different electronic components in a circuit are connected to each other. It specifies which inputs need to be provided and which outputs need to be monitored. The values of components are also specified in the file. For instance, the PMOS (positive channel metal oxide semiconductor) has a channel length of 0.25 microns and a channel width of 0.375 microns. Ideally, the width of the PMOS should be 2 to 3 times wider than that of the NMOS (negative channel metal oxide semiconductor). This is because the PMOS hole carrier is slower than the NMOS carrier, and to achieve matched rise and fall times, we need to reduce the resistance by increasing the width of the PMOS. After this, the nodes in the circuit are identified and named.
 
 ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/f0efb43a-3051-4832-b936-daa8060b567d)
 
