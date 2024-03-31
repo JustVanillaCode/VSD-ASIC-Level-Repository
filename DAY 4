@@ -18,6 +18,11 @@ they are as follows
 
 3. STA i.e Static Timing Analysis - It checks the circuit to make sure that it meets the required delays like hold time, max and min clock frequency, e.t.c
 
+Convert Magic  Layout to STD Cell Lef
+Lef i.e. Library Exchange Format contains the info of the standard cell library used in the design as the name says. The info like shape, size, layers e.t.c is what they contain. The given instructions to set the port definitions are available [here] https://github.com/nickson-jose/vsdstdcelldesign#create-port-definition.
+Now let us save the .mag file with a different and new filename by command 
+`lef write` in tkcon terminal, this will generate a new file with _lef_ extension with the new file name. 
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Thereshold timing-
 A software called `GUNA` creates various .libs files, the schemantics of these .libs file are what we are going to discuss about.
