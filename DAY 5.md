@@ -1,3 +1,19 @@
+TritonRoute -
+TritonRoute is the engine/software/tool that is used for routing . It can be done by the `run_routing` command.
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/81718617-b65d-4a49-99bd-7c0101466819)
+
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/4e3099ba-c699-4c9a-97b7-193ee12c8540)
+
+This stage is very important. It is divided equally into 2 parts - Global Route / Fast Route
+Routing is a crucial aspect of VLSI design, and it is accomplished through open-source or commercial tools. It consists of two phases - Global Route and Detailed Route.
+
+The Global Route, also known as Fast Route, uses fast routing techniques to partition the area to be routed into tiles or rectangles. This process establishes the initial framework for routing paths.
+
+On the other hand, Detailed Route is a meticulous process that fine-tunes and finalizes the paths to ensure proper connectivity and compliance with design constraints. This phase uses advanced routing techniques and completes the routing process. 
+
+In summary, VLSI routing is a two-step process that involves Fast Route for initial routing framework and Detailed Route for finalizing the paths with compliance and connectivity.
+
 
 Delay Tables -
 
