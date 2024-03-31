@@ -1,16 +1,10 @@
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/b751e348-f940-472c-90ab-939b7c85d38c)
     
-    ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/b751e348-f940-472c-90ab-939b7c85d38c)
+ It was hard for the general public and masses to access the PDK but now Google and Skywater technology have worked out an agreement for a 130-nanometer production pdk which was on June / 30 / 2020 the license  is Apache 2.0. This was the first ever open-source pdk for the Masses. So now we have all the elements for the open-source digital ASIC design for EDL tools: qflow, OpenRoad, and OpenLane. For RTL designs we have librecores, opencores, Github, and finally for PDK we have the agreement of Google and Skywater for the 130-nanometer production PDK. 
     
-    
-    
-    It was hard for the general public and masses to access the PDK but now Google and Skywater technology have worked out an agreement for a 130-nanometer production pdk which was on June / 30 / 2020 the license  is Apache 2.0. This was the first ever open-source pdk for the Masses. So now we have all the elements for the open-source digital ASIC design for EDL tools: qflow, OpenRoad, and OpenLane. For RTL designs we have librecores, opencores, Github, and finally for PDK we have the agreement of Google and Skywater for the 130-nanometer production PDK. 
-    
-    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
-    The market share for different types of cutting edge techonology is as follows -
-    
-    ![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/abf4bbba-5c43-4673-b512-37b8c8304c01)
+  The market share for different types of cutting edge techonology is as follows -
+   
+![image](https://github.com/JustVanillaCode/VSD-ASIC-Level-Repository/assets/162819270/abf4bbba-5c43-4673-b512-37b8c8304c01)
     
         
 However, the market share for 130 nanometers is about 6%, and the  cutting-edge technology right now is about five nanometers. The 6% is about equivalent to $4.5 billion in annual revenue this is mainly due to two reasons because several applications do not need the advanced nodes. The fabrication process for these 130 and 180 nanometers is cheaper than compared to the advanced nodes. The Intel P4EE ran at 3.4 gigahertz and was designed by Intel using the 130-nanometer technology also the OSU team reported that a 327 megahertz post layout clock frequency for a single cycle rv 32 icp was received from a 130-nanometer node. 
