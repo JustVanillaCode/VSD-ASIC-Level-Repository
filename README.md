@@ -110,7 +110,7 @@ The file- ~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openl
 Now, we can satisfy the guidelines.  
 
 Timing libs and New cell synthesis-
-The lib directory has the timing files for SKY130 PDK, It has the timing and parameters for each cell. It can vary it could be slow or fast or typical depending on the supply voltage which is Pvt. The library named Sky130_fd_sc_hd__ss_025C_1v80 represents the  PVT corner as ss(slow-slow)
+The lib directory has the timing files for SKY130 PDK, It has the timing and parameters for each cell. It can vary it could be slow or fast or typical depending on the supply voltage which is Pvt. The library named Sky130_fd_sc_hd__ss_025C_1v80 represents the  PVT corner as ss(slow-slow).
 
   ---OpenLane Labs---
 
@@ -253,7 +253,7 @@ After this, Enter the docker command and prepare picorv32a. Add the new lef file
 5. set lefs [glob $::env(DEESIGN_DIR)/src/*.lef]
 6. add_lefs -src $lefs
 
-Then run synthesis and check so that sky130_vsdinv cell is included in the design.
+Then run synthesis and check so that the sky130_vsdinv cell is included in the design.
 
 
 
